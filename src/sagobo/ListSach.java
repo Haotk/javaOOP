@@ -9,16 +9,16 @@ public class ListSach {
         do {
             System.out.println();
             System.out.println("             QUẢN LÝ SÁCH");
-            System.out.println("-------------------***-------------------");
+            System.out.println("-------------------***------------------");
             System.out.println("|    1. Thêm sách.                      |");
             System.out.println("|    2. Sửa thông tin.                  |");
             System.out.println("|    3. Xóa sách.                       |");
             System.out.println("|    4. Xem danh sách.                  |");
-            //System.out.println("|    5. Sắp xếp theo tên.               |");
-            //System.out.println("|    6. Tìm kiếm.                       |");
+            System.out.println("|    5.. Tìm kiếm.                      |");
+            //System.out.println("|    6.. Sắp xếp theo tên.               |");
             System.out.println("|    9. Quay lại menu chính.            |");
             System.out.println("|    0. Thoát chương trình.             |");
-            System.out.println("-----------------------------------------");
+            System.out.println("----------------------------------------");
             System.out.print("  Mời chọn chức năng: ");
             int n = Integer.parseInt(inp.nextLine());
             switch (n) {
@@ -37,6 +37,9 @@ public class ListSach {
                 case 5:
                     menu();
                     break;
+                case 9:
+                    Menu mainmenu = new Menu();
+                    mainmenu.menu();
                 case 0:
                     System.exit(0);
                     break;
@@ -53,7 +56,7 @@ public class ListSach {
         int i;
         listsach = new Book[sosach];
         for(i=0;i<sosach;i++){
-            System.out.println("nhpa loai sach :");
+            System.out.println("nhap loai sach :");
                     int selection= Integer.parseInt(inp.nextLine());
             switch(selection){
                 case 1 :
@@ -137,4 +140,6 @@ public class ListSach {
             listsach[i].xuatSach();
         }
     }
+    
+    
 }

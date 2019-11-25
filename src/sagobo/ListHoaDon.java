@@ -1,18 +1,57 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package sagobo;
 import java.util.Scanner;
-/**
- *
- * @author USER-PC
- */
+
 public class ListHoaDon {
+    
     Scanner inp =new Scanner(System.in);
     private int sohoadon;
     private Hoadon[] Listhoadon;
+    
+    public void menu(){
+        do {
+            System.out.println();
+            System.out.println("             QUẢN LÝ HÓA ĐƠN");
+            System.out.println("-------------------***------------------");
+            System.out.println("|    1. Thêm hóa đơn.                   |");
+            System.out.println("|    2. Xóa hóa đơn.                    |");
+            System.out.println("|    3. Xem danh sách hóa đơn.          |");
+            System.out.println("|    4. Tìm kiếm.                       |");
+            System.out.println("|    5. Sửa thông tin hóa đơn.          |");
+            //System.out.println("|    5. Sắp xếp theo tên.               |");
+            //System.out.println("|    9. Quay lại menu chính.            |");
+            System.out.println("|    0. Thoát chương trình.             |");
+            System.out.println("----------------------------------------");
+            System.out.print("  Mời chọn chức năng: ");
+            int n = Integer.parseInt(inp.nextLine());
+            switch (n) {
+                case 1:
+                    themHoaDon();
+                    break;
+                case 2:
+                    //xoaSach();
+                    break;
+                case 3:
+                    xuatHoaDon();
+                    break;
+                case 4:
+                    timHoaDon();
+                    break;
+                case 5:
+                    
+                    break;
+                case 9:
+                    Menu mainmenu = new Menu();
+                    mainmenu.menu();
+                case 0:
+                    System.exit(0);
+                    break;
+            }
+
+            System.out.println("\n---------------------KẾT THÚC MENU QUẢN LÝ SÁCH------------------\n");
+        } while (true);
+    }
+    
     public void nhapHoaDon(){
         System.out.println("nhap so luong hoa don : ");
         sohoadon=Integer.parseInt(inp.nextLine());

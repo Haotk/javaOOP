@@ -13,6 +13,52 @@ public class ListNguoiMua {
     Scanner inp =new Scanner(System.in);
     private int songuoimua;
     private NguoiMua[] Listnguoimua;
+
+    public void menu(){
+        do {
+            System.out.println();
+            System.out.println("             QUẢN LÝ KHÁCH HÀNG");
+            System.out.println("-------------------***------------------");
+            System.out.println("|    1. Thêm khách hàng.                |");
+            System.out.println("|    2. Xóa khách hàng.                 |");
+            System.out.println("|    3. Xem danh sách khách hàng.       |");
+            System.out.println("|    4. Tìm kiếm khách                  |");
+            System.out.println("|    5. Sửa thông tin khách hàng.       |");
+            //System.out.println("|    5. Sắp xếp theo tên.               |");
+            System.out.println("|    9. Quay lại menu chính.            |");
+            System.out.println("|    0. Thoát chương trình.             |");
+            System.out.println("----------------------------------------");
+            System.out.print("  Mời chọn chức năng: ");
+            int n = Integer.parseInt(inp.nextLine());
+            switch (n) {
+                case 1:
+                    themNguoiMua();
+                    break;
+                case 2:
+                    //xoaSach();
+                    break;
+                case 3:
+                    //xuatDanhSach();
+                    break;
+                case 4:
+                    //timSach();
+                    break;
+                case 5:
+                    timNguoiMua();
+                    break;
+                case 9:
+                Menu mainmenu = new Menu();
+                mainmenu.menu();
+                case 0:
+                    System.exit(0);
+                    break;
+            }
+
+            System.out.println("\n---------------------KẾT THÚC MENU QUẢN LÝ SÁCH------------------\n");
+        } while (true);
+    }
+    
+    
     public void nhapNguoiMua(){
         System.out.println("nhap so nguoi mua ");
         songuoimua=Integer.parseInt(inp.nextLine());
