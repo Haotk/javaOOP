@@ -1,6 +1,7 @@
 package sagobo;
-
+import java.util.Scanner;
 public class NguoiMua {
+    Scanner inp=new Scanner(System.in);
 
     private String maNguoiMua, tenNguoiMua,  diaChi, soDienThoai, email;
     public NguoiMua() {
@@ -107,5 +108,14 @@ public class NguoiMua {
     public void setEmail(String email) {
         this.email = email;
     }
-
+    public void nhap(){
+        System.out.println("nhap ma nguoi mua");
+        maNguoiMua=inp.nextLine();
+        System.out.println("nhap ma sach");
+        tenNguoiMua=inp.nextLine();
+        System.out.println("nhap ma dau sach");
+        diaChi=inp.nextLine();
+        System.out.println("nhap ngay mua");
+        email=inp.nextLine();
+    }
 }
