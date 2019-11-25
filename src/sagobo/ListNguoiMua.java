@@ -41,10 +41,10 @@ public class ListNguoiMua {
                     //xuatDanhSach();
                     break;
                 case 4:
-                    //timSach();
+                    timNguoiMua();
                     break;
                 case 5:
-                    timNguoiMua();
+                    
                     break;
                 case 9:
                 Menu mainmenu = new Menu();
