@@ -7,8 +7,13 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import java.util.Scanner;
+
 public class File extends SachVanHoc{
     private SachVanHoc[] listsach;
+    
+    Scanner inp = new Scanner(System.in);
     public void docFile() 
     {
         //-------------------B1. Tao doi tuong luong va lien ket luong-----------
@@ -73,6 +78,27 @@ public class File extends SachVanHoc{
         } finally {
             oos.close();
         }
+    }
+    
+    void input_file() throws FileNotFoundException
+    {
+        Book[] list;
+        FileInputStream fi = new FileInputStream("input.txt");
+        Scanner inp = new Scanner(fi,"UTF-8");
+        String temp = inp.nextLine(); //doc dong mang trong file
+        inp.close();
+        String [] item = temp.split(" "); //tach chuoi thanh cac phan tu chuoi
+        list = new Book[item.length];
+        for(int i=0; i<item.length; i++) //doi kiem string sang int cua cac phan tu
+            list[i] = Integer.parseInt(item[i]);
+    }
+    void output_file() throws IOException
+    {
+        FileOutputStream fo = new FileOutputStream("output.txt");
+        PrintWriter out = new PrintWriter(fo);
+        for (int i=0; i<Element.length; i++)
+            out.printf("%-5d",Element[i]);
+        out.close();
     }
 }
 

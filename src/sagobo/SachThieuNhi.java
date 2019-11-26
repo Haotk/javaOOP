@@ -10,7 +10,7 @@ public class SachThieuNhi extends Book{
     Scanner inp= new Scanner(System.in);
     private String maSach;
     private String tenSach;
-    private String theLoai;
+    private String theLoai="Thieu Nhi";
     private String tacGia;
     private String tinhTrang;
     private String maDauSach="TN";
@@ -73,15 +73,29 @@ public class SachThieuNhi extends Book{
     maSach = inp.nextLine();
     System.out.print("Nhap ten sach: ");
     tenSach = inp.nextLine();
-    System.out.print("Nhap the loai: ");
-    theLoai = inp.nextLine();
+    //System.out.print("Nhap the loai: ");
+    //theLoai = inp.nextLine();
     System.out.print("Nhap tac gia: ");
     tacGia = inp.nextLine();
     System.out.print("Nhap tinh trang: ");
     tinhTrang = inp.nextLine();
     }
     public void xuatSach(){
-        System.out.printf("%-15s %-15s %-15s %-15s %-15s %-15s",maSach,tenSach,theLoai,tacGia,tinhTrang,maDauSach);
+        System.out.printf("%-15s %-15s %-15s %-15s %-15s %-15s\n",maSach,tenSach,theLoai,tacGia,tinhTrang,maDauSach);
+    }
+    public void suathongtin(){
+        System.out.println("Nhap ma dau sach: ");
+        this.tacGia=inp.nextLine();
+        System.out.println("Nhap ma sach: ");
+        this.maSach=inp.nextLine();
+        System.out.println("Nhap ten sach: ");
+        this.tenSach=inp.nextLine();
+        System.out.println("Nhap the loai: ");
+        this.theLoai=inp.nextLine();
+        System.out.println("Nhap tac gia");
+        this.tacGia=inp.nextLine();
+        System.out.println("Nhap tinh trang");
+        this.tinhTrang=inp.nextLine();
     }
 }
 

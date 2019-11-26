@@ -2,7 +2,7 @@
 package sagobo;
 import java.util.Scanner;
 
-public class ListHoaDon {
+public class ListHoaDon implements Them,Tim{
     
     Scanner inp =new Scanner(System.in);
     private int sohoadon;
@@ -11,34 +11,28 @@ public class ListHoaDon {
     public void menu(){
         do {
             System.out.println();
-            System.out.println("             QUẢN LÝ HÓA ĐƠN");
+            System.out.println("             QUẢN LÝ HÓA ĐƠN            ");
             System.out.println("-------------------***------------------");
             System.out.println("|    1. Thêm hóa đơn.                   |");
-            System.out.println("|    2. Xóa hóa đơn.                    |");
-            System.out.println("|    3. Xem danh sách hóa đơn.          |");
-            System.out.println("|    4. Tìm kiếm.                       |");
-            System.out.println("|    5. Sửa thông tin hóa đơn.          |");
+            //System.out.println("|    2. Xóa hóa đơn.                    |");
+            System.out.println("|    2. Xem danh sách hóa đơn.          |");
+            System.out.println("|    3. Tìm kiếm.                       |");
+            //System.out.println("|    4. Sửa thông tin hóa đơn.          |");
             //System.out.println("|    5. Sắp xếp theo tên.               |");
-            //System.out.println("|    9. Quay lại menu chính.            |");
+            System.out.println("|    9. Quay lại menu chính.            |");
             System.out.println("|    0. Thoát chương trình.             |");
             System.out.println("----------------------------------------");
             System.out.print("  Mời chọn chức năng: ");
             int n = Integer.parseInt(inp.nextLine());
             switch (n) {
                 case 1:
-                    themHoaDon();
+                    them();
                     break;
                 case 2:
-                    //xoaSach();
-                    break;
-                case 3:
                     xuatHoaDon();
                     break;
-                case 4:
-                    timHoaDon();
-                    break;
-                case 5:
-                    
+                case 3:
+                    tim();
                     break;
                 case 9:
                     Menu mainmenu = new Menu();
@@ -62,7 +56,7 @@ public class ListHoaDon {
             Listhoadon[i].nhap();
         }
     }
-    public void timHoaDon(){
+    public void tim(){
         String timMaHoaDon;
         int error = 1;
         Scanner sc = new Scanner(System.in);
@@ -76,7 +70,7 @@ public class ListHoaDon {
         }
         if(error == 1) System.out.println("Khong ton tai hoa don");
     }    
-    public void themHoaDon(){
+    public void them(){
         Hoadon[] temp;
         Check check =new Check();
         int j=0;
@@ -94,10 +88,17 @@ public class ListHoaDon {
         sohoadon++;
         this.Listhoadon=temp;
     }
-    public void xuatHoaDon(){
-        
+    public void xuatHoaDon()
+    {
+        giaodien();
         for(int i=0;i<sohoadon;i++){
             Listhoadon[i].hienThi();
+        }
     }
-}
+    
+    public void giaodien(){
+        System.out.println("=================================================================================================================================");
+        System.out.printf("%-15s %-15s %-15s %-15s\n","maNguoiMua","maSach","maDauSach","maHoaDon");
+        System.out.println("=================================================================================================================================");
+    }
 }

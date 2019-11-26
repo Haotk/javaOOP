@@ -69,7 +69,18 @@ public class NguoiMua {
         this.email = email;
    
     }
-
+    public void suathongtin(){
+        System.out.println("nhap ma nguoi mua: ");
+        maNguoiMua=inp.nextLine();
+        System.out.println("nhap ten nguoi mua: ");
+        tenNguoiMua=inp.nextLine();
+        System.out.println("nhap dia chi: ");
+        diaChi=inp.nextLine();
+        System.out.println("nhap so dien thoai: ");
+        soDienThoai=inp.nextLine();
+        System.out.println("nhap email: ");
+        email=inp.nextLine();
+    }
     public String getmaNguoiMua() {
         return maNguoiMua;
     }
@@ -109,13 +120,15 @@ public class NguoiMua {
         this.email = email;
     }
     public void nhap(){
-        System.out.println("nhap ma nguoi mua");
+        System.out.println("nhap ma nguoi mua: ");
         maNguoiMua=inp.nextLine();
-        System.out.println("nhap ma sach");
+        System.out.println("nhap ten nguoi mua: ");
         tenNguoiMua=inp.nextLine();
-        System.out.println("nhap ma dau sach");
+        System.out.println("nhap dia chi: ");
         diaChi=inp.nextLine();
-        System.out.println("nhap ngay mua");
+        System.out.println("nhap so dien thoai: ");
+        soDienThoai=inp.nextLine();
+        System.out.println("nhap email: ");
         email=inp.nextLine();
     }
 }

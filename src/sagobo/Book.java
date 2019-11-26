@@ -25,6 +25,7 @@ public abstract class Book{
     public abstract String toString();
     public abstract void nhap();
     public abstract void xuatSach();
+    public abstract void suathongtin();
 }
 
 

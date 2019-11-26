@@ -1,20 +1,24 @@
 
 package sagobo;
 import java.util.Scanner;
-public class ListSach {
+import  java.util.Arrays;
+public class ListSach implements Them,Xoa,Tim,Sua{
     public Book[] listsach;
-    public int sosach;
+    public int sosach=0;
     Scanner inp= new Scanner(System.in);
+    public void ListSach(){
+        Book[]  listSach;
+    }
     public void menu() {
         do {
             System.out.println();
             System.out.println("             QUẢN LÝ SÁCH");
             System.out.println("-------------------***------------------");
-            System.out.println("|    1. Thêm sách.                      |");
-            System.out.println("|    2. Sửa thông tin.                  |");
-            System.out.println("|    3. Xóa sách.                       |");
-            System.out.println("|    4. Xem danh sách.                  |");
-            System.out.println("|    5.. Tìm kiếm.                      |");
+            System.out.println("|    1. Thêm sách.                      |");            
+            System.out.println("|    2. Xóa sách.                       |");
+            System.out.println("|    3. Xem danh sách.                  |");
+            System.out.println("|    4. Tìm kiếm.                      |");
+            System.out.println("|    5. Sửa thông tin.                  |");
             //System.out.println("|    6.. Sắp xếp theo tên.               |");
             System.out.println("|    9. Quay lại menu chính.            |");
             System.out.println("|    0. Thoát chương trình.             |");
@@ -23,19 +27,22 @@ public class ListSach {
             int n = Integer.parseInt(inp.nextLine());
             switch (n) {
                 case 1:
-                    themSach();
+                    them();
                     break;
                 case 2:
-                    xoaSach();
+                    xoa();
                     break;
                 case 3:
-                    xuatDanhSach();
+                    xuatDanhSach();                   
                     break;
                 case 4:
-                    timSach();
+                    tim();
                     break;
                 case 5:
-                    menu();
+                    sua();
+                    break;
+                case 6:
+                    nhapSach();
                     break;
                 case 9:
                     Menu mainmenu = new Menu();
@@ -70,7 +77,26 @@ public class ListSach {
             }
         }
     }
-    public void xoaSach(){
+    public void nhapdau(){
+        this.sosach=1;
+        int i;
+        listsach = new Book[sosach];
+        for(i=0;i<sosach;i++){
+            System.out.println("nhap loai sach :");
+                    int selection= Integer.parseInt(inp.nextLine());
+            switch(selection){
+                case 1 :
+                    listsach[i]= new SachVanHoc();
+                    listsach[i].nhap();
+                    break;
+                case 2 :
+                    listsach[i]= new SachThieuNhi();
+                    listsach[i].nhap();
+                    break;
+            }
+        }
+    }
+    public void xoa(){
         int c,i;
         String xoaMaSach;
         Scanner sc = new Scanner(System.in);
@@ -83,7 +109,7 @@ public class ListSach {
         }
         sosach=c;
     }
-    public void timSach(){
+    public void tim(){
         String timMaSach;
         int error = 1;
         Scanner sc = new Scanner(System.in);
@@ -97,14 +123,19 @@ public class ListSach {
         }
         if(error == 1) System.out.println("Khong ton tai ma sach !");
     }
-    public void themSach(){
+    /*
+    public void them(){
         Book[] temp;
         int j=0;
         temp = new Book[sosach+1];
         System.out.println("nhap loai sach ban muon them : ");
+        
         int selection= Integer.parseInt(inp.nextLine());
+        String vanhoc = "Van Hoc";
         for(int i=0;i<sosach;i++){
-            if (listsach[i].getTheLoai.equals("Van Hoc")){
+            System.out.println("gettheloai: "+listsach[i].getTheLoai());
+            System.out.print("hientai: "+vanhoc);
+            if (listsach[i].getTheLoai.equals(vanhoc)){
                     temp[i] = new SachVanHoc();
                     temp[i] = listsach[j++];
             }
@@ -113,7 +144,6 @@ public class ListSach {
                     temp[i] = listsach[j++];
             }
             }
-  
         switch(selection){
             case 1 :
                 temp[sosach] = new SachVanHoc();
@@ -128,9 +158,46 @@ public class ListSach {
         }
         listsach=temp;
 }
+    */
+    public void them(){
+        if(sosach==0) nhapdau();
+        else{
+            int vitrithem=sosach;
+            listsach = Arrays.copyOf(listsach,sosach+1);
+            System.out.println("nhap loai sach :");
+                    int selection= Integer.parseInt(inp.nextLine());
+            switch(selection){
+                case 1 :
+                    listsach[vitrithem]= new SachVanHoc();
+                    listsach[vitrithem].nhap();
+                    break;
+                case 2 :
+                    listsach[vitrithem]= new SachThieuNhi();
+                    listsach[vitrithem].nhap();
+                    break;
+        }
+        this.sosach=vitrithem+1;
+        }         
+    }           
+    public void sua(){
+        String timMaSach;
+        int error = 1;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Nhap ma sach muon sua: ");
+        timMaSach = sc.nextLine();
+        for(int i=0;i<sosach;i++){
+            if(listsach[i].getMaSach().equals(timMaSach)){
+                listsach[i].suathongtin();
+                error = 0;
+            }
+        }
+        if(error == 1) System.out.println("Khong ton tai ma sach da nhap!");
+    }
+    
+    
     public void giaodien(){
         System.out.println("=================================================================================================================================");
-        System.out.printf("%-15s %-15s %-15s %-15s %-15s %-15s","Masach","Tensach","Theloai","Tacgia","Tinhtrang","Madausach");
+        System.out.printf("%-15s %-15s %-15s %-15s %-15s %-15s\n","Masach","Tensach","Theloai","Tacgia","Tinhtrang","Madausach");
         System.out.println("=================================================================================================================================");
     }
     
@@ -140,6 +207,5 @@ public class ListSach {
             listsach[i].xuatSach();
         }
     }
-    
     
 }
